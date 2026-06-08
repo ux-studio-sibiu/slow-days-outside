@@ -1,0 +1,51 @@
+.nsc-hero-swiper {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+
+  .swiper-slide {
+    position: relative;
+    overflow: hidden;
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  // Navigation arrows — white, brand-orange on hover.
+  .swiper-button-prev,
+  .swiper-button-next {
+    color: var(--color-white);
+    transition: color 0.15s ease;
+
+    &::after {
+      font-size: 1.8rem;
+      font-weight: 700;
+    }
+
+    @media (hover: hover) {
+      &:hover {
+        color: var(--color-orange);
+      }
+    }
+  }
+
+  .swiper-pagination {
+    bottom: 24px;
+  }
+
+  .swiper-pagination-bullet {
+    background: var(--color-white);
+    opacity: 0.5;
+    transition: opacity 0.15s ease, background 0.15s ease;
+  }
+
+  .swiper-pagination-bullet-active {
+    background: var(--color-orange);
+    opacity: 1;
+  }
+}

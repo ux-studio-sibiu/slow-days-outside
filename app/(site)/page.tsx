@@ -2,6 +2,7 @@ import Image from "next/image";
 import { getGeneralInfo, getEvents } from "@/sanity/sanity.query";
 import CtaPopout from "@/app/components/cta-popout/cta-popout";
 import SplatterBackdrop from "@/app/components/splatter-backdrop/splatter-backdrop";
+import HeroSwiper from "@/app/components/hero-swiper/hero-swiper";
 import "./page.scss";
 
 export const revalidate = 60; // seconds
@@ -11,24 +12,32 @@ export default async function Home() {
 
   const title = info?.siteTitle || "Educator";
   const tagline = info?.tagline || "";
-  const heroImage = info?.heroImages?.[0];
+  const heroImages = info?.heroImages ?? [];
+  const heroImage = heroImages[0];
 
   return (
     <main id="nsc--home">
       <section className="home-hero">
-        {heroImage?.url && (
+        {heroImages.length > 1 ? (
+          // Multiple hero images → swiper so each can be test-driven.
           <div className="home-hero-media">
-            <Image
-              src={heroImage.url}
-              alt={title}
-              fill
-              priority
-              sizes="100vw"
-              className="object-cover"
-              placeholder={heroImage.lqip ? "blur" : undefined}
-              blurDataURL={heroImage.lqip}
-            />
+            <HeroSwiper images={heroImages} alt={title} />
           </div>
+        ) : (
+          heroImage?.url && (
+            <div className="home-hero-media">
+              <Image
+                src={heroImage.url}
+                alt={title}
+                fill
+                priority
+                sizes="100vw"
+                className="object-cover"
+                placeholder={heroImage.lqip ? "blur" : undefined}
+                blurDataURL={heroImage.lqip}
+              />
+            </div>
+          )
         )}
         <div className="home-hero-content">
           <h1 className="home-hero-title text-uppercase">{title}</h1>

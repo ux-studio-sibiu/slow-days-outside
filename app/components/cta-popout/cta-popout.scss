@@ -3,22 +3,19 @@
 // "Popout" CTA banner — a torn black brush-stroke band sitting on a sage
 // background, with brush edges drawn via ::before (top) and ::after (bottom),
 // mirroring the We Are Adventurers `section.popout-alt` technique.
-
-$band-color: #231f20; // matches the fill in the layout-bar SVGs
-$sage: #8a9279;
-$accent: #d4622a;
-$teal: #4aa0a8;
+//
+// Colors come from the semantic brand tokens in app/styles/_tokens.scss.
 
 .nsc-cta-popout {
   position: relative;
-  background: $sage;
+  background: var(--surface-muted);
   // Vertical room so the torn edges have space above/below the band.
   padding: 7rem 0;
   overflow: hidden;
 
   .cta-popout-band {
     position: relative;
-    background: $band-color;
+    background: var(--surface-inverse); // matches the fill in the layout-bar SVGs
 
     // Torn top edge.
     &::before {
@@ -71,13 +68,13 @@ $teal: #4aa0a8;
 
   .cta-popout-text {
     flex: 1;
-    color: #f4f3f0;
+    color: var(--text-inverse);
   }
 
   .cta-popout-title {
     display: inline-block;
-    background: #fff;
-    color: $accent;
+    background: var(--surface-secondary);
+    color: var(--text-accent);
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.04em;
@@ -95,17 +92,17 @@ $teal: #4aa0a8;
     }
 
     // Subtle accent on the lead-in of the second paragraph, echoing the
-    // teal highlight used on the reference site.
+    // highlight used on the reference site.
     &:nth-child(3)::first-line {
-      color: $teal;
+      color: var(--color-sage-light);
     }
   }
 
   .cta-popout-button {
     flex-shrink: 0;
     display: inline-block;
-    background: $accent;
-    color: #fff;
+    background: var(--btn-primary-bg);
+    color: var(--btn-primary-text);
     font-weight: 700;
     letter-spacing: 0.06em;
     font-size: 1.1rem;
@@ -115,7 +112,7 @@ $teal: #4aa0a8;
 
     @media (hover: hover) {
       &:hover {
-        background: #bd521f;
+        background: var(--btn-primary-bg-hover);
         transform: translateY(-2px);
       }
     }

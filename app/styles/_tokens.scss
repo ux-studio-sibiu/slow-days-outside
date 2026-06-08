@@ -1,0 +1,87 @@
+// ─────────────────────────────────────────────────────────────────────────
+// Design tokens — the We Are Adventurers brand palette.
+//
+// Pulled via the `copy-from-web` skill from the live theme CSS
+//   (.../assets/scss/design.min.css), then validated against a screenshot of
+//   https://weareadventurers.co.uk/outdoor-learning/ to confirm which colors
+//   are actually dominant vs. merely frequent in the stylesheet.
+//
+// Two tiers:
+//   1. PRIMITIVES  — the raw palette (`--color-*`). Single source of truth.
+//   2. SEMANTIC    — intent-based aliases (`--surface-*`, `--text-*`,
+//                    `--btn-*`…) that reference the primitives. Components
+//                    should consume SEMANTIC tokens, not raw hex.
+//
+// See PALETTE.md for the full reference and usage guide.
+// ─────────────────────────────────────────────────────────────────────────
+
+:root {
+  // ═══════════════════════════════════════════════════════════════════════
+  // 1. PRIMITIVES (raw palette)
+  // ═══════════════════════════════════════════════════════════════════════
+
+  // Orange — the signature brand accent.
+  --color-orange: #e25920;
+  --color-orange-dark: #c04817; // hover / pressed
+  --color-orange-light: #e9774c;
+
+  // Ink / neutrals.
+  --color-ink: #231f20; // near-black
+  --color-black: #000000;
+  --color-white: #ffffff;
+
+  // Greens.
+  --color-sage: #7c8878;
+  --color-sage-light: #8a9686;
+  --color-mist: #edf1ec; // pale green off-white
+
+  // Earth / warm.
+  --color-brown: #584036;
+  --color-cream: #fff6d6;
+
+  // Ink with alpha.
+  --color-ink-20: rgba(35, 31, 32, 0.2);
+  --color-ink-80: rgba(35, 31, 32, 0.8);
+
+  // ═══════════════════════════════════════════════════════════════════════
+  // 2. SEMANTIC TOKENS (intent → primitive)
+  //
+  // Role priority confirmed from the page screenshot: orange is THE accent
+  // (logo, hero highlight, feature band, every CTA); mist is the main light
+  // background; ink is the dark surface + body text; sage/brown are decorative
+  // tones that harmonize with the outdoor photography.
+  // ═══════════════════════════════════════════════════════════════════════
+
+  // ── Surfaces ──
+  --surface-primary: var(--color-mist); // main page background
+  --surface-secondary: var(--color-white); // cards, raised panels
+  --surface-inverse: var(--color-ink); // dark sections, header, footer
+  --surface-accent: var(--color-orange); // feature bands, emphasis blocks
+  --surface-muted: var(--color-sage); // calm/decorative blocks
+
+  // ── Text ──
+  --text-primary: var(--color-ink); // body copy on light surfaces
+  --text-secondary: var(--color-sage); // muted / supporting copy
+  --text-inverse: var(--color-white); // copy on dark / accent surfaces
+  --text-accent: var(--color-orange); // links, emphasized words
+  --text-on-accent: var(--color-white); // copy sitting on orange
+
+  // ── Borders ──
+  --border-subtle: var(--color-ink-20); // hairline dividers
+  --border-strong: var(--color-ink); // emphasized outlines
+
+  // ── Buttons: primary (filled orange) ──
+  --btn-primary-bg: var(--color-orange);
+  --btn-primary-bg-hover: var(--color-orange-dark);
+  --btn-primary-text: var(--color-white);
+
+  // ── Buttons: secondary (outline → fills on hover) ──
+  --btn-secondary-bg: transparent;
+  --btn-secondary-text: var(--color-ink);
+  --btn-secondary-border: var(--color-ink);
+  --btn-secondary-bg-hover: var(--color-ink);
+  --btn-secondary-text-hover: var(--color-white);
+
+  // ── Focus ring ──
+  --focus-ring: var(--color-orange);
+}
