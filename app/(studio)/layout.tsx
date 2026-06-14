@@ -6,6 +6,7 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Studio",
+  icons: { icon: "/images/favicon.png" },
 };
 
 export default function StudioRootLayout({

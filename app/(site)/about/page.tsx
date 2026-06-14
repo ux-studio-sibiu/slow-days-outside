@@ -6,7 +6,7 @@ export const revalidate = 60; // seconds
 
 export default async function About() {
   const info = await getGeneralInfo();
-  const heading = info?.aboutTitle || "Despre mine";
+  const heading = info?.aboutTitle || "Despre";
 
   return (
     <main id="nsc--about">

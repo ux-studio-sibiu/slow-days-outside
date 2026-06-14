@@ -1,5 +1,5 @@
 import { StructureResolver } from "sanity/structure";
-import { CogIcon, CalendarIcon } from "@sanity/icons";
+import { CogIcon, CalendarIcon, ClockIcon } from "@sanity/icons";
 
 export const structure: StructureResolver = (S) =>
   S.list()
@@ -27,5 +27,17 @@ export const structure: StructureResolver = (S) =>
           S.documentTypeList("event")
             .title("Evenimente")
             .defaultOrdering([{ field: "date", direction: "desc" }])
+        ),
+
+      // Availability calendar - opens directly as singleton
+      S.listItem()
+        .title("Calendar")
+        .id("calendar-disponibilitate")
+        .icon(ClockIcon)
+        .child(
+          S.document()
+            .schemaType("availability")
+            .documentId("availability")
+            .title("Calendar")
         ),
     ]);

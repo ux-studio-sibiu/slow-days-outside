@@ -16,6 +16,7 @@ const poppins = Poppins({
 export const metadata: Metadata = {
   title: "Educator",
   description: "Site personal — educator",
+  icons: { icon: "/images/favicon.png" },
 };
 
 export default async function SiteLayout({

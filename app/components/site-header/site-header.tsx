@@ -3,8 +3,7 @@ import NavMenu from "../nav-menu/nav-menu";
 import "./site-header.scss";
 
 const NAV_ITEMS = [
-  { label: "Acasă", href: "/" },
-  { label: "Despre mine", href: "/about" },
+  { label: "Despre", href: "/about" },
   { label: "Calendar", href: "/calendar" },
   { label: "Întrebări frecvente", href: "/faq" },
 ];

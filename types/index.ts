@@ -35,5 +35,27 @@ export type EventType = {
   _id: string;
   title: string;
   date: string;
+  startTime?: string;
+  duration?: string;
+  meetPoint?: string;
+  price?: string;
+  maxParticipants?: number;
+  description?: PortableTextBlock[];
+  importantNote?: PortableTextBlock[];
   photos?: EventPhoto[];
+};
+
+export type DayStatus = "occupied" | "free";
+
+export type DayRecord = {
+  date: string;
+  status?: DayStatus;
+  note?: string;
+  /** The event this day links to, resolved to its core fields. */
+  event?: Pick<EventType, "_id" | "title" | "date"> | null;
+};
+
+export type AvailabilityType = {
+  _id: string;
+  days?: DayRecord[];
 };

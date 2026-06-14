@@ -1,0 +1,27 @@
+@use "@/app/styles/breakpoints" as *;
+
+.nsc-split-view {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+  width: 100%;
+
+  // Two equal columns side-by-side once there's room; stacks below.
+  @include respond-to("desktop") {
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    align-items: start;
+  }
+
+  .split-pane {
+    // Let panes shrink inside the grid track instead of overflowing.
+    min-width: 0;
+  }
+
+  // Full remaining width beneath both columns.
+  .split-pane-bottom {
+    @include respond-to("desktop") {
+      grid-column: 1 / -1;
+    }
+  }
+}

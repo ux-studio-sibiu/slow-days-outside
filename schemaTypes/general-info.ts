@@ -31,14 +31,14 @@ const generalInfo = {
 
     defineField({
       name: "aboutTitle",
-      title: "Titlu „Despre mine”",
+      title: "Titlu „Despre",
       type: "string",
     }),
 
     defineField({
       name: "aboutText",
-      title: "Text „Despre mine”",
-      description: "Prezentarea afișată pe pagina „Despre mine”.",
+      title: "Text „Despre",
+      description: "Prezentarea afișată pe pagina „Despre.",
       type: "array",
       of: [{ type: "block" }],
     }),
