@@ -4,6 +4,7 @@ import { Poppins } from "next/font/google";
 // group's bundle, so they never leak into the Sanity Studio at /studio.
 import "@/app/styles/globals.scss";
 import SiteHeader from "@/app/components/site-header/site-header";
+import HeroSwiper from "@/app/components/hero-swiper/hero-swiper";
 import { getGeneralInfo } from "@/sanity/sanity.query";
 
 const poppins = Poppins({
@@ -36,6 +37,12 @@ export default async function SiteLayout({
         <div className="nsc-site-layout">
           <aside className="site-panel site-panel-left">
             <SiteHeader title={title} tagline={tagline} />
+            {/* Hero lives in the layout so it never remounts on in-section
+                navigation — the swiper keeps its slide across pages. The slot
+                only overlays the calendar on /calendar routes. */}
+            <div className="site-hero">
+              <HeroSwiper />
+            </div>
             {aside}
           </aside>
           <main className="site-panel site-panel-right">{children}</main>

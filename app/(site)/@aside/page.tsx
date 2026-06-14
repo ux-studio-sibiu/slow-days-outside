@@ -1,9 +1,4 @@
-import HeroSwiper from "@/app/components/hero-swiper/hero-swiper";
-
+// Home: no overlay, just the persistent hero from the layout.
 export default function HomeAside() {
-  return (
-    <div className="site-hero">
-      <HeroSwiper />
-    </div>
-  );
+  return null;
 }

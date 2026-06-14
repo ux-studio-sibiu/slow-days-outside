@@ -1,10 +1,4 @@
-import HeroSwiper from "@/app/components/hero-swiper/hero-swiper";
-
-// Left panel on /faq.
+// /faq: no overlay, just the persistent hero from the layout.
 export default function FaqAside() {
-  return (
-    <div className="site-hero">
-      <HeroSwiper />
-    </div>
-  );
+  return null;
 }

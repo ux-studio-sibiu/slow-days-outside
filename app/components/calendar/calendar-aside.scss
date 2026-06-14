@@ -1,24 +1,17 @@
-@use "@/app/styles/breakpoints" as *;
-
-// The hero image fills the area below the header; the calendar sits centred on
-// top of it, with padding so the image stays visible around the card.
-.nsc-calendar-aside {
-  position: relative;
-  flex: 1 1 auto;
-  min-height: 42vh;
+// Calendar overlay: floats over the layout's hero image (which fills the left
+// panel). The calendar card is centred with padding so the image stays visible
+// around it. Clicks pass through to the hero except on the card itself.
+.nsc-calendar-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 2; // above the hero (0), below the transparent header (3)
   display: flex;
   align-items: center;
   justify-content: center;
-  overflow: hidden;
   padding: 24px;
+  pointer-events: none;
 
-  @include respond-to("desktop") {
-    min-height: 0;
+  .nsc-calendar-nav {
+    pointer-events: auto;
   }
-}
-
-.calendar-aside-hero {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
 }

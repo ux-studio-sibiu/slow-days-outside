@@ -1,10 +1,5 @@
-import HeroSwiper from "@/app/components/hero-swiper/hero-swiper";
-
-// Fallback for unmatched slots (e.g. hard navigation): the hero swiper.
+// No overlay by default — the hero (in the layout) shows through. This resets
+// the slot on hard navigation / unmatched routes.
 export default function AsideDefault() {
-  return (
-    <div className="site-hero">
-      <HeroSwiper />
-    </div>
-  );
+  return null;
 }

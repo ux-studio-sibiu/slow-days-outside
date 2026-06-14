@@ -1,10 +1,4 @@
-import HeroSwiper from "@/app/components/hero-swiper/hero-swiper";
-
-// Left panel on /about.
+// /about: no overlay, just the persistent hero from the layout.
 export default function AboutAside() {
-  return (
-    <div className="site-hero">
-      <HeroSwiper />
-    </div>
-  );
+  return null;
 }
