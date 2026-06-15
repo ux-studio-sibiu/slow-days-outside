@@ -16,7 +16,7 @@ html {
 }
 
 body {
-  font-family: var(--font-poppins), Arial, sans-serif;
+  font-family: var(--font-archivo), Arial, sans-serif;
   height: 100%;
   min-height: 100%;
   width: 100%;
@@ -66,6 +66,21 @@ body {
 
   @include respond-to("desktop") {
     min-height: 0;
+  }
+
+  // Subtle dark band at the top only, so the transparent header/nav stays
+  // legible. pointer-events: none keeps the swiper arrows/pagination clickable.
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    background: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.45) 0%,
+      rgba(0, 0, 0, 0) 28%
+    );
   }
 }
 

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Poppins } from "next/font/google";
+import { Archivo } from "next/font/google";
 // Website global styles (normalize, resets, theme) live ONLY in this route
 // group's bundle, so they never leak into the Sanity Studio at /studio.
 import "@/app/styles/globals.scss";
@@ -7,10 +7,10 @@ import SiteHeader from "@/app/components/site-header/site-header";
 import HeroSwiper from "@/app/components/hero-swiper/hero-swiper";
 import { getGeneralInfo } from "@/sanity/sanity.query";
 
-const poppins = Poppins({
+// Archivo is a variable font, so weight is omitted (the full range loads).
+const archivo = Archivo({
   subsets: ["latin"],
-  weight: ["400", "700"],
-  variable: "--font-poppins",
+  variable: "--font-archivo",
   display: "swap",
 });
 
@@ -33,7 +33,7 @@ export default async function SiteLayout({
 
   return (
     <html lang="ro" data-scroll-behavior="smooth">
-      <body className={poppins.variable}>
+      <body className={archivo.variable}>
         <div className="nsc-site-layout">
           <aside className="site-panel site-panel-left">
             <SiteHeader title={title} tagline={tagline} />
