@@ -1,11 +1,10 @@
 // ─────────────────────────────────────────────────────────────────────────
-// Portable Text (Sanity rich text) — global styling.
+// Portable Text (Sanity rich text) — editorial styling.
 //
 // Apply the `.has-portable-text` class to any element wrapping a
-// <PortableText /> render. Styling here matches the Sanity Studio block
-// preview (Normal / Heading 1–6 / Quote) so the front end reads the same as
-// the editor. Colour is inherited from the surrounding context so it works on
-// both light and dark themes.
+// <PortableText /> render. Uses serif fonts for headings and maintains
+// editorial typography hierarchy. Colour is inherited from the surrounding
+// context so it works on both light and dark themes.
 // ─────────────────────────────────────────────────────────────────────────
 
 .has-portable-text {
@@ -18,81 +17,111 @@
     margin-bottom: 0;
   }
 
-  // Sizes are em-relative so each container's `font-size` scales the whole
-  // block (e.g. small captions vs. full text columns).
+  // Body paragraphs — consistent line-height for readability.
   p {
     min-height: 12px;
-    margin: 0 0 0.8em;
-    line-height: 1.6;
+    margin: 0 0 1em;
+    line-height: 1.65;
     font-weight: 400;
   }
 
+  // Headings — serif font with strong hierarchy.
   h1,
   h2,
   h3,
   h4,
   h5,
   h6 {
-    margin: 1.2em 0 0.5em;
+    font-family: var(--font-lora);
     font-weight: 700;
-    line-height: 1.2;
+    line-height: 1.25;
+    color: inherit;
   }
 
   h1 {
-    font-size: 2em;
+    margin: 1.4em 0 0.6em;
+    font-size: 2.2em;
   }
 
   h2 {
-    font-size: 1.6em;
+    margin: 1.3em 0 0.6em;
+    font-size: 1.8em;
   }
 
   h3 {
-    font-size: 1.3em;
+    margin: 1.2em 0 0.5em;
+    font-size: 1.4em;
   }
 
   h4 {
+    margin: 1.1em 0 0.5em;
     font-size: 1.1em;
   }
 
   h5 {
+    margin: 1em 0 0.5em;
     font-size: 1em;
   }
 
   h6 {
+    margin: 1em 0 0.5em;
     font-size: 0.85em;
     text-transform: uppercase;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.06em;
+    font-weight: 600;
   }
 
+  // Blockquotes — minimal, elegant styling.
   blockquote {
-    margin: 1em 0;
-    padding: 0.2em 0 0.2em 1em;
-    border-left: 3px solid currentColor;
+    margin: 1.2em 0;
+    padding: 0 0 0 1.2em;
+    border-left: 2px solid currentColor;
     font-style: italic;
-    opacity: 0.85;
+    opacity: 0.9;
   }
 
+  // Lists — proper spacing and alignment.
   ul,
   ol {
-    margin: 0 0 0.8em;
-    padding-left: 1.4em;
+    margin: 0 0 1em;
+    padding-left: 1.6em;
   }
 
   li {
-    margin: 0.2em 0;
-    line-height: 1.6;
+    margin: 0.3em 0;
+    line-height: 1.65;
   }
 
+  // Links — underlined for clarity.
   a {
     color: inherit;
     text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.2em;
+    transition: opacity 0.2s ease;
+
+    @media (hover: hover) {
+      &:hover {
+        opacity: 0.75;
+      }
+    }
   }
 
+  // Inline formatting.
   strong {
     font-weight: 700;
   }
 
   em {
     font-style: italic;
+  }
+
+  // Code styling (if used).
+  code {
+    font-family: monospace;
+    font-size: 0.9em;
+    background: var(--surface-secondary);
+    padding: 0.2em 0.4em;
+    border-radius: 3px;
   }
 }

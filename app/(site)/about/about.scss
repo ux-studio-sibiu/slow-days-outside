@@ -1,55 +1,69 @@
 @use "@/app/styles/breakpoints" as *;
 
 #nsc--about {
+  --splatter-opacity: 0.4;
+  --watermark-opacity: 0.08;
+  min-height: 100%;
+  background: var(--surface-primary);
+
   .about-inner {
-    max-width: 600px;
+    max-width: 540px;
     margin: 0 auto;
-    padding: 60px 20px;
+    padding: 56px 32px;
+    position: relative;
+    z-index: 1;
 
     @include respond-to("tablet") {
-      padding: 80px 40px;
+      padding: 72px 48px;
     }
   }
 
   .about-logo {
     display: block;
-    width: clamp(200px, 100%, 420px);
+    width: clamp(180px, 100%, 360px);
     height: auto;
-    margin: 0 auto 32px;
+    margin: 0 auto 36px;
+    opacity: 0.95;
   }
 
   .about-title {
-    font-size: clamp(1.8rem, 5vw, 2.8rem);
+    margin: 0 0 28px;
+    font-family: var(--font-lora);
+    font-size: clamp(1.8rem, 5vw, 2.4rem);
     font-weight: 700;
-    margin-bottom: 28px;
+    line-height: 1.2;
+    color: var(--text-primary);
   }
 
   .about-body {
-    font-size: 1.05rem;
-    line-height: 1.7;
-    color: #2a2a2a;
+    font-size: 0.95rem;
+    line-height: 1.65;
+    color: var(--text-primary);
   }
 
   .about-empty {
-    color: #6b6b6b;
+    color: var(--text-secondary);
   }
 
   .about-contact {
     margin-top: 40px;
     padding-top: 24px;
-    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    border-top: 1px solid var(--border-subtle);
     display: flex;
     flex-wrap: wrap;
-    gap: 20px;
+    gap: 24px;
   }
 
   .about-contact-link {
-    font-weight: 700;
-    border-bottom: 2px solid transparent;
+    font-weight: 600;
+    color: var(--text-primary);
+    text-decoration: none;
+    border-bottom: 1.5px solid var(--border-strong);
+    transition: opacity 0.2s ease;
 
     @media (hover: hover) {
       &:hover {
-        border-bottom-color: #1a1a1a;
+        opacity: 0.7;
       }
     }
   }

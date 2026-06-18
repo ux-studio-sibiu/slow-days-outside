@@ -48,8 +48,8 @@ export default function SignupForm({ eventId, eventTitle }: { eventId: string; e
 
   if (!open) {
     return (
-      <button type="button" className="nsc-signup-trigger text-uppercase" onClick={() => setOpen(true)}>
-        Înscrie-te
+      <button type="button" className="nsc-signup-trigger" onClick={() => setOpen(true)}>
+        Înscrie-te <span className="btn-arrow">→</span>
       </button>
     );
   }

@@ -28,7 +28,7 @@ export default async function CalendarDatePage({ params }: { params: Promise<{ d
   );
 
   return (
-    <div id="nsc--calendar" className="has-splatter-bg has-splatter-bg">
+    <div id="nsc--calendar" className="has-splatter-bg has-watermark-bg" style={{ "--watermark-number": '"27"', "--watermark-opacity": "0.08" } as React.CSSProperties}>
       <div className="calendar-inner">
         <h1 className="calendar-detail-heading">{heading}</h1>
 

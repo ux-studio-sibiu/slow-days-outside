@@ -16,12 +16,12 @@ html {
 }
 
 body {
-  font-family: var(--font-archivo), Arial, sans-serif;
+  font-family: var(--font-archivo);
   height: 100%;
   min-height: 100%;
   width: 100%;
-  background-color: #f4f3f0;
-  color: #1a1a1a;
+  background-color: var(--surface-primary);
+  color: var(--text-primary);
 }
 
 .font-default {
@@ -47,7 +47,7 @@ body {
   position: relative; // positioning context for the overlaid (transparent) header
   display: flex;
   flex-direction: column;
-  background: var(--surface-primary);
+  background: var(--surface-secondary);
   border-bottom: 1px solid var(--border-subtle);
 
   @include respond-to("desktop") {
@@ -85,7 +85,7 @@ body {
 }
 
 .site-panel-right {
-  background: #fff;
+  background: var(--surface-primary);
   min-width: 0; // let content shrink inside the grid track instead of overflowing
 
   @include respond-to("desktop") {
@@ -124,5 +124,36 @@ body {
       25rem auto,
       25rem auto,
       25rem auto;
+  }
+}
+
+// Drop-in utility — add this class to any element to display a large numeric
+// watermark behind content (e.g., event count, day number). Customize the number,
+// opacity, and color via CSS custom properties:
+//   style={{ "--watermark-number": '"2"', "--watermark-opacity": "0.12" }}
+.has-watermark-bg {
+  position: relative;
+
+  &::before {
+    content: var(--watermark-number, "");
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    font-size: clamp(8rem, 50vw, 28rem);
+    font-weight: 700;
+    opacity: var(--watermark-opacity, 0.1);
+    color: var(--watermark-color, var(--color-ink));
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 2rem;
+    padding-bottom: 2rem;
+    line-height: 1;
+  }
+
+  > * {
+    position: relative;
+    z-index: 1;
   }
 }

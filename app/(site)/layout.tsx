@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Archivo } from "next/font/google";
+import { Archivo, Lora } from "next/font/google";
 // Website global styles (normalize, resets, theme) live ONLY in this route
 // group's bundle, so they never leak into the Sanity Studio at /studio.
 import "@/app/styles/globals.scss";
@@ -10,6 +10,13 @@ import HeroSwiper from "@/app/components/hero-swiper/hero-swiper";
 const archivo = Archivo({
   subsets: ["latin"],
   variable: "--font-archivo",
+  display: "swap",
+});
+
+// Lora for serif headings and editorial typography.
+const lora = Lora({
+  subsets: ["latin"],
+  variable: "--font-lora",
   display: "swap",
 });
 
@@ -28,7 +35,7 @@ export default function SiteLayout({
 }) {
   return (
     <html lang="ro" data-scroll-behavior="smooth">
-      <body className={archivo.variable}>
+      <body className={`${archivo.variable} ${lora.variable}`}>
         <div className="nsc-site-layout">
           <aside className="site-panel site-panel-left">
             <SiteHeader />

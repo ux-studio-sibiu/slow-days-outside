@@ -17,24 +17,33 @@
 
 :root {
   // ═══════════════════════════════════════════════════════════════════════
+  // FONTS
+  // ═══════════════════════════════════════════════════════════════════════
+  --font-archivo: "Archivo", Arial, sans-serif;
+  --font-lora: "Lora", serif;
+
+  // ═══════════════════════════════════════════════════════════════════════
   // 1. PRIMITIVES (raw palette)
   // ═══════════════════════════════════════════════════════════════════════
 
-  // Orange — the signature brand accent.
-  --color-orange: #e25920;
-  --color-orange-dark: #c04817; // hover / pressed
-  --color-orange-light: #e9774c;
-
-  // Ink / neutrals.
-  --color-ink: #231f20; // near-black
+  // Neutrals — minimal editorial palette.
   --color-black: #000000;
   --color-white: #ffffff;
+  --color-ink: #231f20; // near-black for body copy
+  --color-gray: #6b6b6b; // muted text
+  --color-gray-light: #e8e8e8; // dividers, light backgrounds
+  --color-gray-lighter: #f5f5f5; // very light background
 
-  // Greens.
+  // Legacy brand colors (for backward compat, but de-emphasized in semantic tokens).
+  --color-orange: #e25920;
+  --color-orange-dark: #c04817;
+  --color-orange-light: #e9774c;
+
+  // Greens (minimal use).
   --color-sage: #7c8878;
   --color-sage-light: #8a9686;
-  --color-green: #5a9e54; // vivid foliage green — playful decorative accents
-  --color-mist: #edf1ec; // pale green off-white
+  --color-green: #5a9e54;
+  --color-mist: #edf1ec;
 
   // Earth / warm.
   --color-brown: #584036;
@@ -47,42 +56,40 @@
   // ═══════════════════════════════════════════════════════════════════════
   // 2. SEMANTIC TOKENS (intent → primitive)
   //
-  // Role priority confirmed from the page screenshot: orange is THE accent
-  // (logo, hero highlight, feature band, every CTA); mist is the main light
-  // background; ink is the dark surface + body text; sage/brown are decorative
-  // tones that harmonize with the outdoor photography.
+  // Minimal, editorial aesthetic: white/off-white surfaces, black text,
+  // gray accents. No colorful brand accents in this repo.
   // ═══════════════════════════════════════════════════════════════════════
 
   // ── Surfaces ──
-  --surface-primary: var(--color-mist); // main page background
-  --surface-secondary: var(--color-white); // cards, raised panels
-  --surface-inverse: var(--color-ink); // dark sections, header, footer
-  --surface-accent: var(--color-orange); // feature bands, emphasis blocks
-  --surface-muted: var(--color-sage); // calm/decorative blocks
+  --surface-primary: var(--color-white); // main page background
+  --surface-secondary: var(--color-gray-lighter); // light panels, alternates
+  --surface-inverse: var(--color-black); // dark sections (rare)
+  --surface-accent: var(--color-gray-light); // subtle emphasis
+  --surface-muted: var(--color-gray-lighter); // calm/decorative blocks
 
   // ── Text ──
-  --text-primary: var(--color-ink); // body copy on light surfaces
-  --text-secondary: var(--color-sage); // muted / supporting copy
-  --text-inverse: var(--color-white); // copy on dark / accent surfaces
-  --text-accent: var(--color-orange); // links, emphasized words
-  --text-on-accent: var(--color-white); // copy sitting on orange
+  --text-primary: var(--color-black); // body copy
+  --text-secondary: var(--color-gray); // muted / supporting copy, labels
+  --text-inverse: var(--color-white); // copy on dark surfaces
+  --text-accent: var(--color-black); // emphasized words (bold serif, not color)
+  --text-on-accent: var(--color-black); // copy on light accent surfaces
 
   // ── Borders ──
-  --border-subtle: var(--color-ink-20); // hairline dividers
-  --border-strong: var(--color-ink); // emphasized outlines
+  --border-subtle: var(--color-gray-light); // hairline dividers
+  --border-strong: var(--color-black); // emphasized outlines
 
-  // ── Buttons: primary (filled orange) ──
-  --btn-primary-bg: var(--color-orange);
-  --btn-primary-bg-hover: var(--color-orange-dark);
+  // ── Buttons: primary (black outline) ──
+  --btn-primary-bg: var(--color-black);
+  --btn-primary-bg-hover: var(--color-gray);
   --btn-primary-text: var(--color-white);
 
-  // ── Buttons: secondary (outline → fills on hover) ──
+  // ── Buttons: secondary (outline, no fill) ──
   --btn-secondary-bg: transparent;
-  --btn-secondary-text: var(--color-ink);
-  --btn-secondary-border: var(--color-ink);
-  --btn-secondary-bg-hover: var(--color-ink);
+  --btn-secondary-text: var(--color-black);
+  --btn-secondary-border: var(--color-black);
+  --btn-secondary-bg-hover: var(--color-black);
   --btn-secondary-text-hover: var(--color-white);
 
   // ── Focus ring ──
-  --focus-ring: var(--color-orange);
+  --focus-ring: var(--color-black);
 }

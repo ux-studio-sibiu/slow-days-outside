@@ -1,29 +1,39 @@
 .nsc-signup-trigger {
   align-self: flex-start;
-  margin-top: 4px;
-  padding: 12px 26px;
-  border: none;
-  border-radius: 6px;
-  background: var(--btn-primary-bg);
-  color: var(--btn-primary-text);
+  margin-top: 12px;
+  padding: 12px 22px;
+  border: 1.5px solid var(--btn-secondary-border);
+  border-radius: 0;
+  background: transparent;
+  color: var(--btn-secondary-text);
   font-family: inherit;
-  font-weight: 700;
+  font-weight: 500;
   font-size: 0.9rem;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
   cursor: pointer;
-  transition: background 0.15s ease;
+  transition: background 0.2s ease, color 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+
+  .btn-arrow {
+    font-size: 1.1em;
+    line-height: 1;
+  }
 
   &:hover {
-    background: var(--btn-primary-bg-hover);
+    background: var(--btn-secondary-bg-hover);
+    color: var(--btn-secondary-text-hover);
   }
 }
 
 .nsc-signup-form {
-  margin-top: 8px;
-  padding: 22px;
-  background: var(--surface-secondary);
-  border: 1px solid var(--border-subtle);
-  border-radius: 10px;
+  margin-top: 20px;
+  padding: 20px 0;
+  background: transparent;
+  border: none;
+  border-radius: 0;
 
   &.is-success {
     display: flex;

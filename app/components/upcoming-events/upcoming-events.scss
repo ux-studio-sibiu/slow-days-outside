@@ -1,14 +1,13 @@
-// Playful "scrapbook" upcoming-event cards: rounded sticker cards with a slight
-// alternating tilt, a chunky rounded date badge that cycles brand colours, and
-// a framed photo. Shared by the home page and the /calendar index.
+// Editorial upcoming-event list: clean, minimal layout with large serif dates,
+// horizontal dividers, and optional photos. Shared by the home page and /calendar index.
 .nsc-upcoming-events {
   .upcoming-title {
-    margin: 0 0 20px;
-    font-size: 1rem;
-    font-weight: 700;
+    margin: 0 0 16px;
+    font-size: 0.75rem;
+    font-weight: 400;
     text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: var(--color-green);
+    letter-spacing: 0.08em;
+    color: var(--text-secondary);
   }
 
   .upcoming-list {
@@ -17,73 +16,63 @@
     padding: 0;
     display: flex;
     flex-direction: column;
-    gap: 22px;
-    max-width: 480px;
-  }
-
-  // Cards tilt slightly, alternating direction, for a hand-placed feel.
-  li:nth-child(odd) .upcoming-teaser {
-    transform: rotate(-1.4deg);
-  }
-  li:nth-child(even) .upcoming-teaser {
-    transform: rotate(1.4deg);
-  }
-
-  .upcoming-teaser {
-    display: flex;
-    align-items: stretch;
     gap: 0;
-    min-height: 128px;
-    padding: 12px;
-    text-decoration: none;
-    background: var(--surface-secondary);
-    border-radius: 22px;
-    box-shadow: 0 10px 22px rgba(35, 31, 32, 0.12);
-    transition:
-      transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1),
-      box-shadow 0.25s ease;
+  }
 
-    // Straighten, lift and pop on hover.
-    &:hover {
-      transform: rotate(0deg) translateY(-4px) scale(1.015);
-      box-shadow: 0 16px 30px rgba(35, 31, 32, 0.2);
+  li {
+    border-bottom: 1px solid var(--border-subtle);
+
+    &:last-child {
+      border-bottom: none;
     }
   }
 
-  // Rounded date "sticker" — colour cycles green → orange → sage across cards.
+  .upcoming-teaser {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 28px;
+    align-items: center;
+    padding: 22px 0;
+    text-decoration: none;
+    background: transparent;
+    border-radius: 0;
+    box-shadow: none;
+    transition: opacity 0.2s ease;
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+
+  // Large serif date block on the left (day + month).
   .upcoming-teaser-date {
     flex-shrink: 0;
-    width: 64px;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
-    gap: 2px;
-    border-radius: 16px;
-    background: var(--color-green);
-    color: var(--color-white);
+    gap: 6px;
+    background: transparent;
+    color: var(--text-primary);
     line-height: 1;
   }
 
-  li:nth-child(3n + 2) .upcoming-teaser-date {
-    background: var(--color-orange);
-  }
-  li:nth-child(3n) .upcoming-teaser-date {
-    background: var(--color-sage);
-  }
-
   .upcoming-teaser-day {
-    font-size: 2.3rem;
+    font-family: var(--font-lora);
+    font-size: clamp(2.4rem, 8vw, 3.6rem);
     font-weight: 700;
+    color: var(--text-primary);
   }
 
   .upcoming-teaser-month {
-    font-size: 0.78rem;
-    font-weight: 700;
+    font-size: 0.7rem;
+    font-weight: 400;
     text-transform: uppercase;
-    letter-spacing: 0.06em;
+    letter-spacing: 0.08em;
+    color: var(--text-secondary);
   }
 
+  // Event title and location in the center.
   .upcoming-teaser-body {
     flex: 1;
     min-width: 0;
@@ -91,56 +80,42 @@
     flex-direction: column;
     justify-content: center;
     gap: 6px;
-    padding: 4px 14px;
+    padding: 0;
   }
 
-  // Framed, rounded photo that gently zooms on hover.
+  .upcoming-teaser-title {
+    font-family: var(--font-lora);
+    font-size: clamp(1.2rem, 3vw, 1.5rem);
+    font-weight: 600;
+    line-height: 1.3;
+    color: var(--text-primary);
+  }
+
+  .upcoming-teaser-meta {
+    font-size: 0.9rem;
+    line-height: 1.4;
+    color: var(--text-secondary);
+  }
+
+  // Photo on the right (optional, minimal frame).
   .upcoming-teaser-thumb {
     position: relative;
     flex-shrink: 0;
-    width: 118px;
-    align-self: stretch;
-    border-radius: 14px;
+    width: clamp(140px, 20vw, 220px);
+    aspect-ratio: 16 / 10;
+    border-radius: 0;
     overflow: hidden;
-    background: var(--surface-muted);
+    background: var(--surface-secondary);
 
     img {
       width: 100%;
       height: 100%;
       transition: transform 0.3s ease;
+      object-fit: cover;
     }
   }
 
   .upcoming-teaser:hover .upcoming-teaser-thumb img {
-    transform: scale(1.07);
-  }
-
-  .upcoming-teaser-title {
-    font-size: 1.1rem;
-    font-weight: 700;
-    color: var(--text-primary);
-  }
-
-  .upcoming-teaser-meta {
-    font-size: 0.85rem;
-    color: var(--text-secondary);
-  }
-
-  // Respect reduced-motion: drop the tilt and hover motion.
-  @media (prefers-reduced-motion: reduce) {
-    li:nth-child(odd) .upcoming-teaser,
-    li:nth-child(even) .upcoming-teaser {
-      transform: none;
-    }
-    .upcoming-teaser,
-    .upcoming-teaser-thumb img {
-      transition: none;
-    }
-    .upcoming-teaser:hover {
-      transform: translateY(-2px);
-    }
-    .upcoming-teaser:hover .upcoming-teaser-thumb img {
-      transform: none;
-    }
+    transform: scale(1.04);
   }
 }

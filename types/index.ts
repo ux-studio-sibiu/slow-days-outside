@@ -31,6 +31,7 @@ export type EventPhoto = {
 export type EventType = {
   _id: string;
   title: string;
+  subtitle?: string; // Descriptive subtitle (e.g., location context)
   date: string;
   startTime?: string;
   duration?: string;

@@ -13,7 +13,7 @@ export default async function Contact() {
   const hasSocial = Boolean(social?.facebook || social?.instagram || social?.linkedin || social?.youtube);
 
   return (
-    <div id="nsc--contact">
+    <div id="nsc--contact" className="has-splatter-bg has-watermark-bg" style={{ "--watermark-number": '"2026"', "--watermark-opacity": "0.08" } as React.CSSProperties}>
       <div className="contact-inner">
         <Image src={logoBlack} alt="Slow Play" className="contact-logo" priority />
         {/* <h1 className="contact-title">Contact</h1>

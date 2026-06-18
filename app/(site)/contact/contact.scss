@@ -1,85 +1,99 @@
 @use "@/app/styles/breakpoints" as *;
 
 #nsc--contact {
+  --splatter-opacity: 0.4;
+  --watermark-opacity: 0.08;
   min-height: 100%;
-  background: var(--color-white);
+  background: var(--surface-primary);
 
   .contact-inner {
-    max-width: 500px;
+    max-width: 540px;
     margin: 0 auto;
-    padding: 48px 28px;
+    padding: 56px 32px;
+    position: relative;
+    z-index: 1;
 
     @include respond-to("tablet") {
-      padding: 64px 40px;
+      padding: 72px 48px;
     }
   }
 
   .contact-logo {
     display: block;
-    width: clamp(140px, 40%, 220px);
-    width: clamp(200px, 100%, 420px);
+    width: clamp(180px, 100%, 360px);
     height: auto;
-    margin: 0 auto 28px;
+    margin: 0 auto 36px;
+    opacity: 0.95;
   }
 
   .contact-title {
-    font-size: clamp(1.8rem, 5vw, 2.8rem);
+    margin: 0 0 12px;
+    font-family: var(--font-lora);
+    font-size: clamp(1.8rem, 5vw, 2.4rem);
     font-weight: 700;
-    margin-bottom: 12px;
+    line-height: 1.2;
+    color: var(--text-primary);
   }
 
   .contact-lead {
-    color: var(--text-secondary);
-    margin-bottom: 32px;
+    margin: 0 0 32px;
+    color: var(--text-primary);
+    font-size: 0.95rem;
+    line-height: 1.6;
   }
 
   .contact-methods {
     display: flex;
     flex-direction: column;
-    gap: 14px;
+    gap: 0;
     margin-bottom: 36px;
+    border-bottom: 1px solid var(--border-subtle);
   }
 
   .contact-method {
     display: flex;
     flex-direction: column;
-    gap: 4px;
-    padding: 16px 18px;
-    background: var(--surface-secondary);
-    border: 1px solid var(--border-subtle);
-    border-radius: 12px;
+    gap: 6px;
+    padding: 18px 0;
+    background: transparent;
+    border: none;
+    border-top: 1px solid var(--border-subtle);
+    border-radius: 0;
     text-decoration: none;
-    transition:
-      border-color 0.15s ease,
-      box-shadow 0.15s ease,
-      transform 0.15s ease;
+    transition: opacity 0.2s ease;
+
+    &:first-child {
+      border-top: none;
+    }
 
     &:hover {
-      border-color: var(--color-green);
-      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
-      transform: translateY(-1px);
+      opacity: 0.75;
     }
   }
 
   .contact-method-label {
     font-size: 0.75rem;
-    font-weight: 700;
+    font-weight: 400;
     text-transform: uppercase;
     letter-spacing: 0.06em;
     color: var(--text-secondary);
   }
 
   .contact-method-value {
-    font-size: 1.1rem;
-    font-weight: 700;
+    font-size: 1rem;
+    font-weight: 600;
     color: var(--text-primary);
+  }
+
+  .contact-social {
+    margin-top: 28px;
   }
 
   .contact-social-label {
     display: block;
-    margin-bottom: 12px;
+    margin-bottom: 14px;
     font-size: 0.75rem;
-    font-weight: 700;
+    font-weight: 400;
     text-transform: uppercase;
     letter-spacing: 0.06em;
     color: var(--text-secondary);
@@ -91,27 +105,23 @@
     padding: 0;
     display: flex;
     flex-wrap: wrap;
-    gap: 10px;
+    gap: 12px;
   }
 
   .contact-social-link {
     display: inline-block;
     padding: 8px 16px;
-    border: 1px solid var(--border-subtle);
-    border-radius: 999px;
+    border: 1.5px solid var(--border-strong);
+    border-radius: 0;
     text-decoration: none;
-    font-weight: 600;
+    font-weight: 500;
     font-size: 0.9rem;
     color: var(--text-primary);
-    transition:
-      background 0.15s ease,
-      color 0.15s ease,
-      border-color 0.15s ease;
+    transition: background 0.2s ease, color 0.2s ease;
 
     &:hover {
-      background: var(--color-green);
-      border-color: var(--color-green);
-      color: var(--color-white);
+      background: var(--text-primary);
+      color: var(--surface-primary);
     }
   }
 
