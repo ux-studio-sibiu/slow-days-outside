@@ -1,0 +1,61 @@
+// ─────────────────────────────────────────────────────────────────────────
+// Decorative butterfly background patterns.
+//
+// Four individual butterfly SVGs positioned and sized independently for an
+// elegant, editorial aesthetic. Similar to splatter-bg but with butterflies.
+// This partial only DEFINES utilities, so it can be `@use`d without
+// duplication. The drop-in utility class `.has-butterflies-bg` is emitted
+// once from globals.scss.
+// ─────────────────────────────────────────────────────────────────────────
+
+// Drop-in utility — add this class to any element to display decorative
+// butterflies behind content. Position and scale via CSS custom properties:
+//   style={{ "--butterfly-opacity": "0.15" }}
+.has-butterflies-bg {
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    filter:grayscale(1);
+    opacity: var(--butterfly-opacity, 0.32);
+    background-image:
+      url(/images/butterfly-1.svg),
+      url(/images/butterfly-2.svg),
+      url(/images/butterfly-3.svg),
+      url(/images/butterfly-4.svg);
+    background-repeat: no-repeat;
+    background-size:
+      36rem auto,
+      32rem auto,
+      30rem auto,
+      38rem auto;
+    background-position:
+      left 8% bottom 12%,
+      right 10% top 15%,
+      right 5% bottom 25%,
+      left 15% top 5%;
+  }
+
+  > * {
+    position: relative;
+    z-index: 1;
+  }
+
+  // Tighter variant for smaller spaces.
+  &.butterflies-bg-sm::before {
+    background-size:
+      12rem auto,
+      11rem auto,
+      10rem auto,
+      13rem auto;
+    background-position:
+      left 12% bottom 18%,
+      right 15% top 20%,
+      right 8% bottom 30%,
+      left 20% top 8%;
+  }
+}

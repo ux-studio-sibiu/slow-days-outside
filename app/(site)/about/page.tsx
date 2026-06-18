@@ -10,7 +10,7 @@ export default async function About() {
   const info = await getGeneralInfo();
 
   return (
-    <div id="nsc--about" className="has-splatter-bg has-watermark-bg" style={{ "--watermark-number": '"2026"', "--watermark-opacity": "0.08" } as React.CSSProperties}>
+    <div id="nsc--about" className="has-butterflies-bg">
       <article className="about-inner">
         <Image src={logoBlack} alt="Slow Play" className="about-logo" priority />
         <h1 className="about-title">Despre</h1>
