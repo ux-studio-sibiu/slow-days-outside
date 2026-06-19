@@ -39,13 +39,15 @@ export default function UpcomingEvents({
                   <span className="upcoming-teaser-title">{event.title}</span>
                   {event.meetPoint && <span className="upcoming-teaser-meta">{event.meetPoint}</span>}
                 </span>
-                {cover?.url && (
-                  <span className="upcoming-teaser-thumb">
-                    <span className="upcoming-teaser-border">
+                <span className="upcoming-teaser-thumb">
+                  <span className="upcoming-teaser-border">
+                    {cover?.url ? (
                       <Image src={cover.url} alt={event.title} fill sizes="130px" className="object-cover" placeholder={cover.lqip ? "blur" : undefined} blurDataURL={cover.lqip} />
-                    </span>
+                    ) : (
+                      <img src="/images/sun-3.svg" alt="" className="upcoming-teaser-placeholder" />
+                    )}
                   </span>
-                )}
+                </span>
               </Link>
             </li>
           );

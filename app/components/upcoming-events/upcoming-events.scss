@@ -20,7 +20,7 @@
   }
 
   li {
-    border-bottom: 1px solid var(--border-subtle);
+    border-bottom: 1px solid var(--border-strong);
 
     &:last-child {
       border-bottom: none;
@@ -28,33 +28,37 @@
   }
 
   .upcoming-teaser {
+    --thumb-size: clamp(68px, 11vw, 92px);
     display: grid;
-    grid-template-columns: auto 1fr auto;
+    // Fixed thumb column so rows stay aligned whether or not a photo exists.
+    // Areas keep a single row in the right order regardless of DOM order.
+    grid-template-columns: var(--thumb-size) 1fr auto;
+    grid-template-areas: "thumb body date";
     gap: 20px;
     align-items: center;
-    padding: 14px 0;
+    padding: 14px;
     text-decoration: none;
     background: transparent;
     border-radius: 0;
     box-shadow: none;
     transition: opacity 0.2s ease;
+    background: rgba(255, 255, 255, 0);
 
-    &:hover {
-      // opacity: 0.8;
+    &:hover{
+      background: rgba(151, 151, 151, 0.1);
     }
   }
 
   // Compact serif date block (day + month) — sits on the right.
   .upcoming-teaser-date {
-    order: 1;
+    grid-area: date;
     flex-shrink: 0;
     min-width: 2.6em;
-    align-items: flex-end;
-    text-align: right;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: flex-end;
     justify-content: center;
+    text-align: right;
     gap: 2px;
     background: transparent;
     color: var(--text-primary);
@@ -78,6 +82,7 @@
 
   // Event title and location in the center.
   .upcoming-teaser-body {
+    grid-area: body;
     flex: 1;
     min-width: 0;
     display: flex;
@@ -103,10 +108,10 @@
 
   // Photo (optional, minimal frame) — sits on the left.
   .upcoming-teaser-thumb {
-    order: -1;
+    grid-area: thumb;
     position: relative;
     flex-shrink: 0;
-    width: clamp(68px, 11vw, 92px);
+    width: var(--thumb-size);
     aspect-ratio: 1 / 1;
     border-radius: 50%;
     overflow: hidden;
@@ -128,6 +133,12 @@
       transition: transform 0.3s ease;
       object-fit: cover;
       border-radius: 50%;
+    }
+
+    // Fallback sun placeholder when an event has no photo — contained (not
+    // cropped) and inset so it reads as an icon inside the circular frame.
+    .upcoming-teaser-placeholder {
+      object-fit: contain;
     }
   }
 

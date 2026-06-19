@@ -38,8 +38,7 @@
   }
 }
 
-// Primary — filled by default, colors reversed on hover (fill drops out,
-// text/border take the fill color).
+// Primary — filled; on hover the black fill just lightens slightly.
 .btn-primary {
   background: var(--btn-primary-bg);
   color: var(--btn-primary-text);
@@ -47,9 +46,8 @@
 
   @media (hover: hover) {
     &:hover:not(:disabled) {
-      background: transparent;
-      color: var(--btn-primary-bg);
-      border-color: var(--btn-primary-bg);
+      background: var(--btn-primary-bg-hover);
+      border-color: var(--btn-primary-bg-hover);
     }
   }
 }

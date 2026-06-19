@@ -1,3 +1,5 @@
+@use "@/app/styles/breakpoints" as *;
+
 // Visuals come from the global `.btn .btn-secondary`; this only adds the
 // trigger's placement within the signup column.
 .nsc-signup-trigger {
@@ -26,9 +28,21 @@
   }
 
   .signup-fields {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: 1fr;
     gap: 16px;
+
+    // Two fields per row once there's room.
+    @include respond-to("tablet") {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  // Title, error summary and actions span the full width of the grid.
+  .signup-title,
+  .signup-error-summary,
+  .signup-actions {
+    grid-column: 1 / -1;
   }
 
   .signup-title {
@@ -42,30 +56,37 @@
     display: flex;
     flex-direction: column;
     gap: 6px;
+    min-width: 0; // let inputs shrink inside grid tracks instead of overflowing
 
     label {
-      font-size: 0.85rem;
-      font-weight: 600;
-      color: var(--text-secondary);
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--text-primary);
     }
 
     input {
-      padding: 10px 12px;
-      border: 1px solid var(--border-subtle);
+      padding: 11px 13px;
+      border: 1.5px solid var(--border-strong);
       border-radius: 6px;
       background: var(--surface-primary);
       color: var(--text-primary);
       font-family: inherit;
       font-size: 0.95rem;
 
+      &::placeholder {
+        color: var(--text-secondary);
+      }
+
       &:focus {
         outline: 2px solid var(--focus-ring);
         outline-offset: 1px;
-        border-color: transparent;
+        border-color: var(--border-strong);
       }
 
       &.has-error {
-        border-color: var(--surface-accent);
+        border-color: var(--color-orange-dark);
       }
     }
   }
@@ -73,7 +94,8 @@
   .signup-error {
     margin: 0;
     font-size: 0.8rem;
-    color: var(--surface-accent);
+    font-weight: 600;
+    color: var(--color-orange-dark);
   }
 
   .signup-error-summary {

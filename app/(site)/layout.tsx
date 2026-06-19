@@ -23,7 +23,7 @@ const lora = Lora({
 export const metadata: Metadata = {
   title: "Slow Days Outside",
   description: "Slow Days Outside",
-  icons: { icon: "/favicon.svg" },
+  icons: { icon: "/favicon.png" },
 };
 
 export default function SiteLayout({
