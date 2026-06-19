@@ -1,4 +1,4 @@
-$spacing: (15, 20, 30, 40, 50);
+$spacing: (15, 20, 30, 40, 50, 100, 200, 300);
 
 @each $v in $spacing {
   .mt-#{$v} { margin-top: #{$v}px !important; }

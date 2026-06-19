@@ -36,7 +36,7 @@ export function DecorLayer({ children, className, color, zIndex = 0, filter }: D
   }
 
   return (
-    <div aria-hidden="true" className={className} style={{ position: "absolute", top: 0, left: 0, right: 0, minHeight: "100%", zIndex, pointerEvents: "none", overflow: "hidden", color: solidColor, opacity, filter }}>
+    <div aria-hidden="true" className={["decor-layer", className].filter(Boolean).join(" ")} style={{ position: "absolute", top: 0, left: 0, right: 0, minHeight: "100%", zIndex, pointerEvents: "none", overflow: "hidden", color: solidColor, opacity, filter }}>
       {children}
     </div>
   );

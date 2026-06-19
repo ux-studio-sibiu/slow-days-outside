@@ -12,15 +12,20 @@ export default async function About() {
   const info = await getGeneralInfo();
 
   return (
-    <div id="nsc--about  pt-30 pb-30">
-      <DecorLayer color="rgba(0,0,0,0.1)">
+    <div id="nsc--about" className="pt-100 pb-300">
+      <DecorLayer color="rgba(0,0,0,0.05)">
         <SvgItem src="/images/sun-3.svg" top="-10%" right="-10%" width="20rem" />
-        <SvgItem src="/images/foliage-3.svg" right="4%" top="61%" width="23rem" rotate={-8} flipX />
-        <SvgItem src="/images/clouds-3.svg" left="-12%" top="-3%" width="30%" rotate={10} />
-        <SvgItem src="/images/butterfly-1.svg" left="9%" top="48%" width="12rem" rotate={355} />
-        <SvgItem src="/images/butterfly-3.svg" right="9%" top="44%" width="8rem" rotate={-10} flipX />
+        
+        <SvgItem src="/images/more-leaves-2.svg" top="25rem" left="-4%" width="17rem" rotate={20} />
+
+        <SvgItem src="/images/leaves-2.svg" right="-3%" top="30%" width="30%" rotate={-70} />
+        <SvgItem src="/images/leaves-5.svg" left="-7%" top="50%" width="38%" rotate={20} />
+
+        <SvgItem src="/images/butterfly-1.svg" left="4%" top="3%" width="8rem" rotate={355} />
+        <SvgItem src="/images/more-birds-6.svg" left="30%" top="0%" width="8rem" rotate={355} />
+        <SvgItem src="/images/butterfly-3.svg" right="9%" top="20%" width="8rem" rotate={-10} flipX />
         <SvgItem src="/images/forest-2.svg" bottom="-2rem" left="-5%" width="110%" />
-        <SvgItem src="/images/colibri-4.svg" top="25rem" left="5%" width="8rem" />
+        
       </DecorLayer>
 
       <div className="page-content">
