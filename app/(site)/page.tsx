@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { getEvents } from "@/sanity/sanity.query";
 import UpcomingEvents from "@/app/components/upcoming-events/upcoming-events";
 import { DecorLayer } from "@/app/components/decor-layer/decor-layer";
@@ -10,7 +11,7 @@ export default async function Home() {
   const events = await getEvents();
 
   return (
-    <div id="nsc--home" className="pb-300">
+    <div id="nsc--home" className="pb-300 pt-100">
 
       <DecorLayer color="rgba(0,0,0,0.05)">
         <SvgItem src="/images/vines-5.svg" left="-8%" top="5%" width="18rem" rotate={6} />
@@ -22,9 +23,9 @@ export default async function Home() {
 
       <div className="page-content">
         <header className="home-header">
-          {/* <p className="home-header-label">Slow Days Outside · Program</p> */}
+          
           <h1 className="home-header-title">Program activităti</h1>
-          {/* <p className="home-header-desc">Alege un eveniment din listă pentru detalii și însciere.</p> */}
+          <Link href="/calendar" className="btn btn-primary">Vezi calendar</Link>
         </header>
 
         <section className="home-events">

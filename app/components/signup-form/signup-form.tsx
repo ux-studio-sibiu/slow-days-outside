@@ -48,7 +48,7 @@ export default function SignupForm({ eventId, eventTitle }: { eventId: string; e
 
   if (!open) {
     return (
-      <button type="button" className="nsc-signup-trigger" onClick={() => setOpen(true)}>
+      <button type="button" className="nsc-signup-trigger btn btn-primary" onClick={() => setOpen(true)}>
         Înscrie-te <span className="btn-arrow">→</span>
       </button>
     );
@@ -58,7 +58,7 @@ export default function SignupForm({ eventId, eventTitle }: { eventId: string; e
     return (
       <div className="nsc-signup-form is-success">
         <p className="signup-success">Înscrierea a fost trimisă. Vă mulțumim!</p>
-        <button type="button" className="signup-cancel" onClick={() => { setOpen(false); setStatus("idle"); }}>
+        <button type="button" className="btn btn-secondary" onClick={() => { setOpen(false); setStatus("idle"); }}>
           Închide
         </button>
       </div>
@@ -98,10 +98,10 @@ export default function SignupForm({ eventId, eventTitle }: { eventId: string; e
         {status === "error" && <p className="signup-error signup-error-summary">{errorMsg}</p>}
 
         <div className="signup-actions">
-          <button type="button" className="signup-cancel" onClick={() => setOpen(false)}>
+          <button type="button" className="btn btn-secondary" onClick={() => setOpen(false)}>
             Anulează
           </button>
-          <button type="submit" className="signup-submit text-uppercase" disabled={status === "loading"}>
+          <button type="submit" className="btn btn-primary" disabled={status === "loading"}>
             {status === "loading" ? "Se trimite…" : "Trimite"}
           </button>
         </div>

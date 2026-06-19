@@ -9,11 +9,9 @@ import "./upcoming-events.scss";
 export default function UpcomingEvents({
   events,
   limit = 5,
-  title = "Program activităti",
 }: {
   events: EventType[];
   limit?: number;
-  title?: string;
 }) {
   const now = Date.now();
   const upcoming = events
@@ -25,7 +23,7 @@ export default function UpcomingEvents({
 
   return (
     <div className="nsc-upcoming-events">
-      <h2 className="upcoming-title">{title}</h2>
+  
       <ul className="upcoming-list">
         {upcoming.map((event) => {
           const d = new Date(event.date);
@@ -38,6 +36,7 @@ export default function UpcomingEvents({
                   <span className="upcoming-teaser-month">{d.toLocaleDateString("ro-RO", { month: "short" })}</span>
                 </span>
                 <span className="upcoming-teaser-body">
+                  <span className="upcoming-teaser-title">{event.title}</span>
                   {event.meetPoint && <span className="upcoming-teaser-meta">{event.meetPoint}</span>}
                 </span>
                 {cover?.url && (
