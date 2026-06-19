@@ -5,6 +5,7 @@ import { Archivo, Lora } from "next/font/google";
 import "@/app/styles/globals.scss";
 import SiteHeader from "@/app/components/site-header/site-header";
 import HeroSwiper from "@/app/components/hero-swiper/hero-swiper";
+import { getGeneralInfo } from "@/sanity/sanity.query";
 
 // Archivo is a variable font, so weight is omitted (the full range loads).
 const archivo = Archivo({
@@ -26,13 +27,15 @@ export const metadata: Metadata = {
   icons: { icon: "/favicon.png" },
 };
 
-export default function SiteLayout({
+export default async function SiteLayout({
   children,
   aside,
 }: {
   children: React.ReactNode;
   aside: React.ReactNode;
 }) {
+  const info = await getGeneralInfo();
+
   return (
     <html lang="ro" data-scroll-behavior="smooth">
       <body className={`${archivo.variable} ${lora.variable}`}>
@@ -43,7 +46,7 @@ export default function SiteLayout({
                 navigation — the swiper keeps its slide across pages. The slot
                 only overlays the calendar on /calendar routes. */}
             <div className="site-hero">
-              <HeroSwiper />
+              <HeroSwiper images={info?.heroImages ?? []} />
             </div>
             {aside}
           </aside>
