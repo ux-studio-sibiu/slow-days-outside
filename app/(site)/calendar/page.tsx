@@ -12,14 +12,15 @@ export default async function CalendarIndexPage() {
   return (
     <div id="nsc--calendar">
 
-
-       <DecorLayer color="rgba(0,0,0,0.18)" className="should-be-monochrome">
+       <DecorLayer color="rgba(0,0,0,0.1)" >
         <SvgItem src="/images/foliage-3.svg" right="4%" top="61%" width="23rem" rotate={-8} flipX />
         <SvgItem src="/images/foliage-5.svg" left="-12%" top="3%" width="23rem" rotate={10} />
         <SvgItem src="/images/butterfly-1.svg" left="4%" top="48%" width="12rem" rotate={355} />
         <SvgItem src="/images/butterfly-3.svg" right="9%" top="44%" width="8rem" rotate={-10} flipX />
         <SvgItem src="/images/sun-3.svg" right="-12%" top="-17%" width="26rem" rotate={-5} />
       </DecorLayer>
+
+
       <div className="calendar-inner">
         <p className="calendar-hint">
           Selectează o zi marcată din calendar pentru a vedea evenimentul.

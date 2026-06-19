@@ -5,17 +5,17 @@
   min-height: 100%;
   background: var(--surface-primary);
 
-  .about-inner {
-    max-width: 540px;
-    margin: 0 auto;
-    padding: 56px 32px;
-    position: relative;
-    z-index: 1;
+  // .about-inner {
+  //   max-width: 540px;
+  //   margin: 0 auto;
+  //   padding: 56px 32px;
+  //   position: relative;
+  //   z-index: 1;
 
-    @include respond-to("tablet") {
-      padding: 72px 48px;
-    }
-  }
+  //   @include respond-to("tablet") {
+  //     padding: 72px 48px;
+  //   }
+  // }
 
   .about-logo {
     display: block;

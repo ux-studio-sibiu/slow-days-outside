@@ -21,9 +21,9 @@ const lora = Lora({
 });
 
 export const metadata: Metadata = {
-  title: "Educator",
-  description: "Site personal — educator",
-  icons: { icon: "/images/favicon.png" },
+  title: "Slow Days Outside",
+  description: "Slow Days Outside",
+  icons: { icon: "/favicon.svg" },
 };
 
 export default function SiteLayout({
